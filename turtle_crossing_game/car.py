@@ -14,7 +14,7 @@ COLORS: str = [
 
 class Car(Turtle):
 
-    def __init__(self, speed: int = 10) -> None:
+    def __init__(self, speed: int = 3) -> None:
         super().__init__()
         self.color(choice(COLORS))
         self.pu()

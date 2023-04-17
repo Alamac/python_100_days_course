@@ -13,7 +13,7 @@ screen.tracer(0)
 
 turtle: TurtleChar = TurtleChar()
 level: Level = Level()
-cars: Car = [Car(level.get_speed())]
+cars: Car = [Car(3)]
 
 
 screen.listen()
