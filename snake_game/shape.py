@@ -3,7 +3,7 @@ from turtle import Turtle
 
 class Square(Turtle):
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.shape('square')
         self.color('white')
@@ -12,7 +12,7 @@ class Square(Turtle):
 
 class Circle(Turtle):
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.shape('circle')
         self.color('blue')
