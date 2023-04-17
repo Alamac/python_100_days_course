@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 BASE_SPEED = 3
-
+FONT = ('Courier', 20, 'normal')
 
 class Level(Turtle):
 
@@ -17,7 +17,7 @@ class Level(Turtle):
 
     def update(self) -> None:
         self.clear()
-        self.write(f'Level: {self.level}', align='left', font=('Courier', 20, 'normal'))
+        self.write(f'Level: {self.level}', align='left', font=FONT)
 
     def increase_level(self) -> None:
         self.clear()
@@ -27,3 +27,9 @@ class Level(Turtle):
 
     def get_speed(self) -> int:
         return self.level_speed
+
+
+    def game_over(self):
+        self.clear()
+        self.setpos(0, 0)
+        self.write('Game Over', align='center', font=FONT)

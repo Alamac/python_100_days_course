@@ -28,10 +28,12 @@ while game_is_on:
     screen.update()
     time.sleep(0.1)
     for c in cars:
-        if c.xcor() < -300:
-            c.delete()
         if c.distance(turtle) < 20:
             game_is_on = False
+            level.game_over()
+            break
+        if c.xcor() < -300:
+            c.delete()
         c.move()
     if tick % 10 == 0:
         cars.append(Car(level.get_speed()))
