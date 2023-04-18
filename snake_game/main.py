@@ -31,11 +31,9 @@ while game_is_on:
         snake.grow()
         scoreboard.increase_score()
 
-    if snake.check_self_collision():
-        game_is_on = False
-
-    if snake.head.xcor() >= 300 or snake.head.xcor() <= -300 or snake.head.ycor() >= 300 or snake.head.ycor() <= -300:
-        game_is_on = False
+    if snake.check_self_collision() or snake.check_wall_collision():
+        scoreboard.reset()
+        snake.reset()
 
 scoreboard.game_over()
 

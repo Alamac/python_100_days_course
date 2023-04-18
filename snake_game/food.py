@@ -4,12 +4,12 @@ from random import randint
 
 class Food(Circle):
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.speed('fastest')
         self.reposition()
 
-    def reposition(self):
+    def reposition(self) -> None:
         random_x = randint(-280, 280)
         random_x = random_x - random_x % 20
         random_y = randint(-280, 280)
