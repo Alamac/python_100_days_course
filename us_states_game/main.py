@@ -33,10 +33,8 @@ while state_count < 50 and game_is_on:
         guessed_states.add(answer_state)
 
 if not game_finished:
-    missed_states = []
-    for s in state_dict:
-        if s not in guessed_states:
-            missed_states.append(s)
+
+    missed_states = [s for s in state_dict if s not in guessed_states]
     pandas.DataFrame(missed_states).to_csv("missed_states.csv")
 
 
