@@ -57,13 +57,13 @@ def search_pass(website):
     except FileNotFoundError:
         messagebox.showwarning(message="No data file found!")
         return
-    try:
-        website_data = data[website]
-    except KeyError:
-        messagebox.showwarning(title=website, message=f"No password found for {website}")
     else:
-        messagebox.showinfo(title=website,
-                            message=f"Email: {website_data['email']}\nPassword: {website_data['password']}")
+        if website in data:
+            website_data = data[website]
+            messagebox.showinfo(title=website,
+                                message=f"Email: {website_data['email']}\nPassword: {website_data['password']}")
+        else:
+            messagebox.showwarning(title=website, message=f"No password found for {website}")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
