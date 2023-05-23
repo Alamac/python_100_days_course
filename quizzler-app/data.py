@@ -1,4 +1,5 @@
 import requests
+from question_model import Question
 
 ENDPOINT = "https://opentdb.com/api.php?amount=10&type=boolean"
 
@@ -11,7 +12,9 @@ class QuestionData:
     def _get_questions_from_server(self):
         response = requests.get(self.endpoint)
         response.raise_for_status()
-        return response.json()["results"]
+        results = response.json()["results"]
+        processed_results = [Question(question=q["question"], answer=q["correct_answer"]) for q in results]
+        return processed_results
 
     def reset_questions(self):
         self.questions = self._get_questions_from_server()
