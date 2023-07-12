@@ -3,6 +3,7 @@ import requests
 from dataclasses import dataclass
 from datetime import datetime
 import os
+from typing import Tuple
 
 
 COORDINATES = (44.81863449841634, 20.447057426526552)
@@ -27,7 +28,7 @@ class WeatherApp:
         self.rain_hours = self.find_rain_hours(12)
 
     @staticmethod
-    def get_weather_from_server(coordinates):
+    def get_weather_from_server(coordinates) -> Tuple[dict, dict]:
         lat, lon = coordinates
         params = {
             "lon": lon,
@@ -51,16 +52,16 @@ class WeatherApp:
 
         return results
 
-    def stringify(self):
+    def stringify(self) -> str:
         result = ""
         for i in self.rain_hours:
             result += f"It's gonna {i.weather} at {i.hour}\n"
         return result
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.stringify()
 
-    def send_message(self):
+    def send_message(self) -> None:
         send_sms(self.stringify())
 
 
